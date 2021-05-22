@@ -6,20 +6,20 @@ import Link from 'next/link'
 const name = 'Mehul Mohan'
 export const siteTitle = "Mehul Mohan's Blog"
 
-export default function Layout({ children, home }) {
+type Props = {
+	home?: boolean
+}
+
+const Layout: React.FC<Props> = ({ children, home }) => {
 	return (
 		<div className={styles.container}>
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
-				<meta name="description" content="Mehul Mohan's personal blog" />
-				{/* <meta
-					property="og:image"
-					content={`https://og-image.now.sh/${encodeURI(
-						siteTitle
-					)}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-				/> */}
+				<meta
+					name="description"
+					content="Mehul Mohan's personal blog"
+				/>
 				<meta name="og:title" content={siteTitle} />
-				{/* <meta name="twitter:card" content="summary_large_image" /> */}
 			</Head>
 			<header className={styles.header}>
 				{home ? (
@@ -44,7 +44,9 @@ export default function Layout({ children, home }) {
 						</Link>
 						<h2 className={utilStyles.headingLg}>
 							<Link href="/">
-								<a className={utilStyles.colorInherit}>{name}</a>
+								<a className={utilStyles.colorInherit}>
+									{name}
+								</a>
 							</Link>
 						</h2>
 					</>
@@ -61,3 +63,5 @@ export default function Layout({ children, home }) {
 		</div>
 	)
 }
+
+export default Layout

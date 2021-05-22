@@ -17,10 +17,13 @@ export default function Home({ allPostsData }) {
 					<a href="https://codedamn.com" target="_blank">
 						codedamn
 					</a>
-					. You can contact me on <a href="https://twitter.com/mehulmpt">Twitter</a>.
+					. You can contact me on{' '}
+					<a href="https://twitter.com/mehulmpt">Twitter</a>.
 				</p>
 			</section>
-			<section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+			<section
+				className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
+			>
 				<h2 className={utilStyles.headingLg}>Blog</h2>
 				<ul className={utilStyles.list}>
 					{allPostsData.map(({ id, date, title }) => (
@@ -44,7 +47,7 @@ export async function getStaticProps() {
 	const allPostsData = getSortedPostsData()
 	return {
 		props: {
-			allPostsData
-		}
+			allPostsData,
+		},
 	}
 }
